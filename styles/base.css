@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #BFA2DB;
+    --accent-color: #F7D6E0;
+    --text-color: #3E3E3E;
+    --background-color: #ddcae4; }
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Fredoka" , sans-serif;
+    font-size: 2rem;
+    display: grid;
+    grid-template: auto 1fr auto / auto;
+}
+
+header,footer{
+    background-color: var(--primary-color);
+    color: rgb(84, 75, 85);
+}
+
+#course-title{
+    
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: larger;
+    text-align: center;
+
+}
+
+nav {
+    background-color: var(--accent-color);
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    color: #6B4C9A;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    background-color: var(--primary-color);
+}
+
+
+
+/* larger/wider views **************************/
+@media (min-width: 640px) {
+    nav ul {
+        display: flex;
+    }
+}
+
+    nav ul li {
+        flex: 1 0 auto;
+        /* flex: [flex-grow] [flex-shrink] [flex-basis]; 
+		in this example, the items will not shrink but can grow to fill the space at natural content width*/
+
+    }
+
+main h1{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    grid-column: 1 / -1;
+}
+
+.card h2{
+    font-size: 1.8rem;
+    background-color: var(--primary-color);    
+    color: var(--text-color);
+}
+
+p{
+    font-size: 1.1rem;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+.card{
+    background-color: #F2EAF5;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 2px rgba(0, 0, 0, 0.1);
+    
+}
+.intro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.intro img {
+    width: 200px;
+    border-radius: 8px;
+}
+
+.country {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.country img {
+    width: 180px;
+    border-radius: 6px;
+}
+
+.card h3{
+    font: 0.7em sans-serif;
+    text-align: center;
+    margin-top: 1.3rem;
+    margin-bottom: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+footer span {
+    font-weight: bold; }
+
