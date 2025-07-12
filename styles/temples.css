@@ -1,0 +1,110 @@
+:root{
+    --primary-color: #503220;
+    --accent-color: #5a4224;
+    --text-color: #ffffff;
+    --background-color: #eee7df;
+}
+
+
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header{
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+header h1{
+    color: #ffffff;
+}
+
+#menu {
+    font-size: 1.5rem;
+    z-index: 999;
+    border: 1px solid red;
+    background: none;
+    color: var(--accent-color, #fff);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+#menu::before {
+    content: "☰";
+}
+
+#menu.open::before {
+    content: "❌";
+}
+.navigation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    color: var(--text-color);
+}
+
+.navigation a{
+    display: none;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navigation a:hover{
+    background-color: #7d977f;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.navigation.open a {
+    display: block; }
+
+main{
+    max-width: 800px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 25px;
+    place-items: center;
+}
+
+figure{
+    background-color: var(--accent-color);
+    
+}
+
+img{
+    width: 87%;
+    height: auto;
+    margin: .5rem;
+}
+figcaption{
+    font-size: smaller;
+    color: var(--text-color);
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    width: 100%;
+}
+
+footer span {
+    font-weight: bold;
+}
