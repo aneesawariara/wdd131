@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Aneesa Wangui Wariara | Country Page</title>
+    <meta name="description" content="Country Page">
+    <meta name="author" content="Aneesa Wangui Wariara">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kenya</h1>
+    </header>
+    <main>
+        <section class="hero">
+            <picture>
+                <source srcset="images/hero-small.webp" media="(max-width: 600px)">
+                <source srcset="images/hero-large.webp" media="(max-width: 1000px)">
+                <img src="images/hero-large.webp" alt="Scenic view of Kenya">
+            </picture>
+        
+            <section class="data">
+                <h2>Data</h2>
+                <p>Area: 580,367sq km</p>
+                <p>Population: 50.4 million</p>
+                <p>Capital: Nairobi</p>
+                <p>Languages: Kiswahili, English</p>
+                <p>Currency: Kenyan Shilling</p>
+                <p>Time Zone : UTC+3</p>
+                <p>Calling Code: +254</p>
+            
+            </section>
+            <section class="weather">
+                <h2 class="weather-title">Weather</h2>
+                <div class="weather-details">
+                    <img src="images/partly-cloudy.svg" alt="Partly cloudy icon">
+                    <p>Temperature: <span id="temperature">25</span>°C</p>
+                    <p>Wind Speed: <span id="windspeed">10</span> km/h</p>
+                    <p>Wind Chill: <span id="windchill"></span>°C</p>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> 🌟 Aneesa Wangui Wariara 🌟 Kenya</p>
+        <p id="lastModified"></p>
+    </footer>
+    
+</body>
+</html>
