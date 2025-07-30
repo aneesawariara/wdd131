@@ -60,7 +60,7 @@ const temples = [
         dedicated: "1986, January, 10",
         area: 9600,
         imageUrl:
-            "https://churchofjesuschristtemples.org/assets/img/temples/lima-peru-temple/lima-peru-temple-42068-thumb.jpg"
+            "https://churchofjesuschristtemples.org/assets/img/temples/lima-peru-temple/lima-peru-temple-12720-thumb.jpg"
     },
     {
         templeName: "Mexico City Mexico",
@@ -113,7 +113,7 @@ const temples = [
     
 ];
 
-createTempleCard();
+createTempleCard(temples);
 
 document.getElementById("home").addEventListener("click", () => {
     createTempleCard(temples);
@@ -146,7 +146,7 @@ document.getElementById("small").addEventListener("click", () => {
 });
 
 
-function createTempleCard() {
+function createTempleCard(temples) {
     document.querySelector(".templeCards").innerHTML = "";
     temples.forEach(temple => {
         let card = document.createElement("section");
