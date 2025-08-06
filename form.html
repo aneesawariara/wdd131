@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review Form</title>
+    <meta name="description" content="Fill Me In">
+    <meta name="author" content="Aneesa Wariara">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="styles/form.css" rel="stylesheet">
+    <script src="scripts/form.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
+    <main>
+        <form method="get" action="review.html">
+
+            <label for="productName">Product Name</label>
+            <select id="productName" name="productName" required>
+                <option value="" disabled selected>Choose a Product...</option>
+            </select>
+
+            <fieldset class="rating">
+                <legend>Overall Rating</legend>
+                
+                <label for="star1">
+                    <input type="radio" id="star1" name="rating" value="1" required>
+                    ☆
+                </label>
+                
+                <label for="star2">
+                    <input type="radio" id="star2" name="rating" value="2">
+                    ☆☆
+                </label>
+                
+                <label for="star3">
+                    <input type="radio" id="star3" name="rating" value="3">
+                    ☆☆☆
+                </label>
+                
+                <label for="star4">
+                    <input type="radio" id="star4" name="rating" value="4">
+                    ☆☆☆☆
+                </label>
+                
+                <label for="star5">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    ☆☆☆☆☆
+                </label>
+            </fieldset>
+
+            <label>Date of Installation<input type="date" id="installDate" name="installDate" 
+                required></label>
+
+            <fieldset>
+                <legend>Which features did you find useful? (Check all that apply)</legend>
+            
+                <label for="feature1">
+                    <input type="checkbox" id="feature1" name="features[]" value="Durability">
+                    Durability
+                </label>
+            
+                <label for="feature2">
+                    <input type="checkbox" id="feature2" name="features[]" value="Ease of Use">
+                    Ease of Use
+                </label>
+            
+                <label for="feature3">
+                    <input type="checkbox" id="feature3" name="features[]" value="Performance">
+                    Performance
+                </label>
+            
+                <label for="feature4">
+                    <input type="checkbox" id="feature4" name="features[]" value="Design">
+                    Design
+                </label>
+            
+                <label for="feature5">
+                    <input type="checkbox" id="feature5" name="features[]" value="Energy Efficiency">
+                    Energy Efficiency
+                </label>
+            </fieldset>
+
+            <label for="review">Written Review
+                <span class="optional">(optional)</span></label>
+            <textarea id="review" name="review" rows="4" placeholder="Share your thoughts..."></textarea>
+            
+            
+            <label for="userName">Your Name
+                <span class="optional">(optional)</span></label>
+            <input type="text" id="userName" name="userName">
+            
+        
+            <input type="submit" value="Review Product">
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>© <span id="currentyear"></span> 🌟 Aneesa Wangui Wariara 🌟 Kenya</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
