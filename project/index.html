@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Wildlife Explorer</title>
+    <meta name="description" content="This is the homepage of the Kenya Wildlife Explorer website. See the diversity of wildlife in some of the parks.">
+    <meta name="author" content="Aneesa Wangui Wariara">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/project.css">
+    <script src="scripts/project.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>KENYA'S DIVERSE WILDLIFE</h1>
+        <button type="button" id="menu" aria-label="Toggle Menu"></button>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="info.html">Parks</a></li>
+                <li><a href="tracker.html">Wildlife Tracker</a></li>
+                
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <main>
+        <section class="carousel" aria-label="Wildlife image scroller">
+            <h2>Explore the Wild</h2>
+            <button class="carousel-btn prev" aria-label="Previous image">❮</button>
+            <div class="carousel-track">
+                <picture class="carousel-slide">
+                    <source srcset="images/home-image-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/home-image1.webp" media="(min-width: 601px)">
+                    <img src="images/home-image1.webp" alt="Elephants in the park" loading="lazy">
+                </picture>
+                <picture class="carousel-slide">
+                    <source srcset="images/antelope-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/antelope1.webp" media="(min-width: 601px)">
+                    <img src="images/antelope1.webp" alt="A herd of Antelopes" loading="lazy">
+                </picture>
+                <picture class="carousel-slide">
+                    <source srcset="images/buffalo-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/buffalo1.webp" media="(min-width: 601px)">
+                    <img src="images/buffalo1.webp" alt="Buffaloes in the mud" loading="lazy">
+                </picture>
+                <picture>
+                    <source srcset="images/cheetah-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/cheetah1.webp" media="(min-width: 601px)">
+                    <img src="images/cheetah1.webp" alt="A cheetah and her cubs" loading="lazy">
+                </picture>
+                <picture class="carousel-slide">
+                    <source srcset="images/elephant-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/elephant1.webp" media="(min-width: 601px)">
+                    <img src="images/elephant1.webp" alt="Elephants with their calf" loading="lazy">
+                </picture>
+                <picture class="carousel-slide">
+                    <source srcset="images/lion-small.webp" media="(max-width: 600px)">
+                    <source srcset="images/lion1.webp" media="(min-width: 601px)">
+                    <img src="images/lion1.webp" alt="Lions in Masai Mara" loading="lazy">
+                </picture>
+
+
+            </div>
+            <button class="carousel-btn next" aria-label="Next image">❯</button>
+
+        </section>
+        
+
+        <section class="fact-box">
+            <h2>🐘 Wildlife Fact of the Day</h2>
+            <p id="fact"></p>
+        </section>
+
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span>  Kenya</p>
+        <p id="lastModified"></p>
+        <p><a href="references.html" aria-label="References page">📎</a></p>
+    </footer>
+
+</body>
+
+</html>
