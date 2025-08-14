@@ -1,7 +1,7 @@
 :root {
     --accent-color: #556B2F;
     --bg-color: #114411;
-    --heading-font: 'Shadow Into Light', sans-serif;
+    --heading-font: 'Shadows Into Light', sans-serif;
     --body-font: 'Roboto', sans-serif;
     --text-color: #333;
 }
@@ -221,7 +221,7 @@ h2{
 
 .sightings-page h1{
     text-align: center;
-    font-weight: 1200;
+    font-weight: 700;
 
 }
 
@@ -264,6 +264,19 @@ button[type="submit"] {
     box-shadow: 1px 1px 4px #999;
 }
 
+
+#clearSightings{
+    border: none;
+    background-image: linear-gradient(var(--accent-color), var(--bg-color));
+    color: #fff;
+    font-size: medium;
+    border-radius: 6px;
+    padding: .8rem;
+    width: 96%;
+    margin: 1rem 2% 1rem 2%;
+    box-shadow: 1px 1px 4px #999;
+}
+
 fieldset{
     border: 2px solid #114411;
     border-radius: 8px;
@@ -293,7 +306,48 @@ input:required:invalid:focus
     background-color: #fff;
 }
 
+.sighting-entry {
+    background-color: #fff8dc;
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 1rem; 
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: 75px;
+}
 
+.references{
+    background-color: #fff;
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 15rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+.references h1{
+    color: var(--bg-color);
+}
+
+.references a {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.references a::before {
+    content: "🌿 ";
+}
+
+.references a:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
 footer {
     display: flex;
     justify-content: space-between;

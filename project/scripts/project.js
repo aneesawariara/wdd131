@@ -12,12 +12,79 @@ const facts = [
     "Hippos secrete a natural sunscreen that protects their skin from the sun."
 ];
 
+function getSightings() {
+    return JSON.parse(localStorage.getItem('wildlifeSightings')) || [];
+}
+
+function renderSightings() {
+    const sightings = getSightings();
+    const sightingsList = document.getElementById('sightingsList');
+    sightingsList.innerHTML = '';
+
+    sightings.forEach((sighting, index) => {
+        const div = document.createElement('div');
+        div.classList.add('sighting-entry');
+        div.innerHTML = `
+            <p><strong>Name:</strong> ${sighting.name}</p>
+            <p><strong>Species:</strong> ${sighting.species}</p>
+            <p><strong>Location:</strong> ${sighting.location}</p>
+            <p><strong>Date:</strong> ${sighting.date}</p>
+            <p><strong>Notes:</strong> ${sighting.notes}</p>
+        `;
+        sightingsList.appendChild(div);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Fact of the Day
     const factElement = document.getElementById("fact");
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    factElement.textContent = randomFact;
+    if (factElement) {
+        const randomFact = facts[Math.floor(Math.random() * facts.length)];
+        factElement.textContent = `${randomFact}`;
+    }
+
+    // Form logic
+    const form = document.getElementById('sightingForm');
+    const sightingsList = document.getElementById('sightingsList');
+    const clearButton = document.getElementById('clearSightings');
+
+    renderSightings();
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const sighting = {
+                name: form.visitorName.value.trim(),
+                species: form.species.value.trim(),
+                location: form.location.value.trim(),
+                date: form.date.value,
+                notes: form.notes.value.trim()
+            };
+            if (!sighting.name || !sighting.species || !sighting.location || !sighting.date) {
+                alert('Please fill out all required fields.');
+                return;
+            }
+            const sightings = getSightings();
+            sightings.push(sighting);
+            localStorage.setItem('wildlifeSightings', JSON.stringify(sightings));
+            form.reset();
+            renderSightings();
+        });
+    }
+
+    if (clearButton) {
+        clearButton.addEventListener('click', function () {
+            if (confirm('Are you sure you want to clear all sightings?')) {
+                localStorage.removeItem('wildlifeSightings');
+                renderSightings();
+            }
+        });
+    }
 });
+
+
+
+
 
 //hamburger menu
 const hamButton = document.querySelector("#menu");
@@ -64,49 +131,4 @@ window.addEventListener('resize', updateCarousel);
 //date and year
 const yearSpan = document.querySelector("#currentyear");
 yearSpan.textContent = new Date().getFullYear();
-
-// Form page
-// DOM references
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('sightingForm');
-    const sightingsList = document.getElementById('sightingsList');
-    const clearButton = document.getElementById('clearSightings');
-
-    renderSightings();
-
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const sighting = {
-                name: form.visitorName.value.trim(),
-                species: form.species.value.trim(),
-                location: form.location.value.trim(),
-                date: form.date.value,
-                notes: form.notes.value.trim()
-            };
-
-            if (!sighting.name || !sighting.species || !sighting.location || !sighting.date) {
-                alert('Please fill out all required fields.');
-                return;
-            }
-
-            const sightings = getSightings();
-            sightings.push(sighting);
-            localStorage.setItem('wildlifeSightings', JSON.stringify(sightings));
-
-            form.reset();
-            renderSightings();
-        });
-    }
-
-    if (clearButton) {
-        clearButton.addEventListener('click', function () {
-            if (confirm('Are you sure you want to clear all sightings?')) {
-                localStorage.removeItem('wildlifeSightings');
-                renderSightings();
-            }
-        });
-    }
-});
 
