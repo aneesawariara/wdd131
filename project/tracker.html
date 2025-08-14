@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Wildlife Explorer</title>
+    <meta name="description"
+        content="This is the tracker page of the Kenya Wildlife Explorer website. Track all the animals you see and submit it today!">
+    <meta name="author" content="Aneesa Wangui Wariara">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/project.css">
+    <script src="scripts/project.js" defer></script>
+
+</head>
+
+<body class="sightings-page">
+    <header>
+        <h1>TRACK THE WILDLIFE YOU SEE</h1>
+        <button type="button" id="menu" aria-label="Toggle Menu"></button>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="info.html">Parks</a></li>
+                <li><a href="tracker.html" aria-current="page">Wildlife Tracker</a></li>
+
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <main>
+        <h1> Visitor Sightings </h1>
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Submit a Wildlife Sighting</h2>
+            <form id="sightingForm">
+                <fieldset>
+                    <legend>Your Info</legend>
+                    <label for="visitorName">Name:</label>
+                    <input type="text" id="visitorName" name="visitorName" required />
+        
+                    <label for="species">Species:</label>
+                    <input type="text" id="species" name="species" required list="speciesList" />
+                    <datalist id="speciesList">
+                        <option value="Elephant"></option>
+                        <option value="Lion"></option>
+                        <option value="Giraffe"></option>
+                        <option value="Zebra"></option>
+                        <option value="Rhino"></option>
+                        <option value="Buffalo"></option>
+                        <option value="Cheetah"></option>
+                        <option value="Wildbeast"></option>
+
+                        
+                    </datalist>
+        
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required />
+        
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required />
+        
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="4"></textarea>
+                </fieldset>
+        
+                <button type="submit">Wildlife Sighting</button>
+            </form>
+        </section>
+        
+        <section aria-labelledby="sightings-heading">
+            <h2 id="sightings-heading">Recent Sightings</h2>
+            <div id="sightingsList" aria-live="polite">
+                <!-- Sightings will be injected here -->
+            </div>
+            <button id="clearSightings">Clear All Sightings</button>
+        </section>
+        
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> 🐘 Kenya Wildlife Explorer 🐘 </p>
+        <p><a href="references.html" aria-label="References page">📎</a></p>
+    </footer>
+
+</body>
+
+</html>
