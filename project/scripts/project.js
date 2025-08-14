@@ -67,63 +67,46 @@ yearSpan.textContent = new Date().getFullYear();
 
 // Form page
 // DOM references
-const form = document.getElementById('sightingForm');
-const sightingsList = document.getElementById('sightingsList');
-const clearButton = document.getElementById('clearSightings');
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('sightingForm');
+    const sightingsList = document.getElementById('sightingsList');
+    const clearButton = document.getElementById('clearSightings');
 
-// Load sightings on page load
-document.addEventListener('DOMContentLoaded', renderSightings);
-
-// Handle form submission
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const sighting = {
-    name: form.visitorName.value.trim(),
-    species: form.species.value.trim(),
-    location: form.location.value.trim(),
-    date: form.date.value,
-    notes: form.notes.value.trim()
-  };
-
-  if (!sighting.name || !sighting.species || !sighting.location || !sighting.date) {
-    alert('Please fill out all required fields.');
-    return;
-  }
-
-  const sightings = getSightings();
-  sightings.push(sighting);
-  localStorage.setItem('wildlifeSightings', JSON.stringify(sightings));
-
-  form.reset();
-  renderSightings();
-});
-
-// Clear all sightings
-clearButton.addEventListener('click', function () {
-  if (confirm('Are you sure you want to clear all sightings?')) {
-    localStorage.removeItem('wildlifeSightings');
     renderSightings();
-  }
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const sighting = {
+                name: form.visitorName.value.trim(),
+                species: form.species.value.trim(),
+                location: form.location.value.trim(),
+                date: form.date.value,
+                notes: form.notes.value.trim()
+            };
+
+            if (!sighting.name || !sighting.species || !sighting.location || !sighting.date) {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            const sightings = getSightings();
+            sightings.push(sighting);
+            localStorage.setItem('wildlifeSightings', JSON.stringify(sightings));
+
+            form.reset();
+            renderSightings();
+        });
+    }
+
+    if (clearButton) {
+        clearButton.addEventListener('click', function () {
+            if (confirm('Are you sure you want to clear all sightings?')) {
+                localStorage.removeItem('wildlifeSightings');
+                renderSightings();
+            }
+        });
+    }
 });
 
-// Helper: Get sightings from localStorage
-function getSightings() {
-  return JSON.parse(localStorage.getItem('wildlifeSightings')) || [];
-}
-
-// Helper: Render sightings to the page
-function renderSightings() {
-  const sightings = getSightings();
-  sightingsList.innerHTML = sightings.length === 0
-    ? '<p>No sightings yet. Be the first to report!</p>'
-    : sightings.map(sighting => `
-      <article class="sighting-card">
-        <h3>${sighting.species}</h3>
-        <p><strong>Spotted by:</strong> ${sighting.name}</p>
-        <p><strong>Location:</strong> ${sighting.location}</p>
-        <p><strong>Date:</strong> ${sighting.date}</p>
-        ${sighting.notes ? `<p><strong>Notes:</strong> ${sighting.notes}</p>` : ''}
-      </article>
-    `).join('');
-}
